@@ -1,6 +1,11 @@
-table,
+.tableU,
 th,
 td {
-    border: 1px solid black;
+    border: 2px solid green;
     padding: 3px 10px;
+}
+
+.main {
+    display: flex;
+    margin: 100px;
 }
