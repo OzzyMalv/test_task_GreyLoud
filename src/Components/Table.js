@@ -3,47 +3,58 @@ import Connect from "./apiConnect";
 
 import "./styleTable.css";
 
-const columns = ["id"];
 
 class Table extends Component {
     constructor(props) {
         super(props)
-        this.state = { data: props, users: '' };
+        this.state = { prop: props, data: '' };
         this.connect = new Connect();
     }
 
     componentWillMount() {
-        this.setState({ users: this.connect.getUsers() })
+        this.connect.getUsers().then(res => {
+            this.setState({ data: res })
+        })
+
+
     }
-    // .results["0"].picture.thumbnail
+
+    sortByDesc() {
+        let newArr = this.state.data.sort((a, b) => {
+            if (a.name.first < b.name.first) { return 1; }
+            if (a.name.first > b.name.first) { return -1; }
+            return 0;
+        })
+        this.setState({ data: newArr });
+    }
+
     render() {
-        // console.log(this.state);
-        console.log(this.state)
-        return (
-            <div className='main'>
-                <table className='uk-table tableU'>
-                    <thead columns={columns} />
-                    <caption>Users</caption>
-                    <tbody>
-                        <tr>
-                            <th>Table Heading</th>
-                            <th>Table Heading</th>
-                            <th>Table Heading</th>
-                        </tr>
-                        <tr>
-                            <th>Table Heading</th>
-                            <th>Table Heading</th>
-                            <th>Table Heading</th>
-                        </tr>
-                        <tr>
-                            <th>Table Heading</th>
-                            <th>Table Heading</th>
-                            <th>Table Heading</th>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        );
+        if (this.state.data) {
+            return (
+                <div className='main'>
+                    <table className='uk-table uk-table-hover uk-table-middle uk-table-divider tableU'>
+                        <thead>
+                            <tr>
+                                <th className="uk-table-shrink">Foto</th>
+                                <th className="uk-table-expand" onClick={this.sortByDesc.bind(this)}>Name &#8593;&#8595;</th>
+                                <th className="uk-table-expand">Phone + Email</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {this.state.data.map((item) => {
+                                return <tr>
+                                    <td><img className="uk-preserve-width uk-border-circle" alt="img" src={item.picture.medium}></img></td>
+                                    <td className="uk-table-link">{item.name.first} <br /> {item.name.last}</td>
+                                    <td className="uk-text-expand">Phone: {item.phone} <br /> Email: {item.email}</td>
+                                </tr>;
+                            })}
+                        </tbody>
+                    </table>
+                </div>
+            );
+        }
+        else { return (<div></div>) }
+
     }
 }
 
