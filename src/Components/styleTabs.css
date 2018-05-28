@@ -2,3 +2,17 @@
     display: flex;
     justify-content: center;
 }
+
+.mainCards{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.overrideCard {
+    margin: 20px;
+    width: 100%;
+    max-width: 400px;
+}
+.overrideImg{
+    margin: 0 auto !important
+}

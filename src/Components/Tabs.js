@@ -1,24 +1,31 @@
 import React, { Component } from "react";
 
 import "./styleTabs.css";
-class Tabs extends Component {
-    render() {
-        return (
-            <div className="tabsView">
-                <div uk-margin="true">
-                    {/* <a class="uk-button uk-button-default" href="#">Link</a> */}
-                    <button className="uk-button uk-button-default">Table</button>
-                    <button className="uk-button uk-button-default">Cards</button>
 
-                </div>
+// const status = 'table'
 
-
-
-
-            </div>
-        )
-    }
+function checkTabs(status) {
+    // status === 'cards' ? this.setState({ typeView: 'cards' }) : this.setState({ typeView: 'table' });
 
 }
 
-export default Tabs
+
+
+
+
+const tabs = (props) => {
+    return (
+        <div className="tabsView">
+            <div uk-margin='true'>
+                <div className="uk-button uk-button-default" onClick={checkTabs('table')}>Table</div>
+                <div className="uk-button uk-button-default" onClick={checkTabs('cards')}>Cards</div>
+
+            </div>
+        </div>
+    )
+}
+
+
+
+
+export default tabs
