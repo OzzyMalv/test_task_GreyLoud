@@ -1,11 +1,12 @@
-import React, { Component } from "react";
-
+import React from "react";
+import { withState } from "recompose";
 import "./styleTabs.css";
 
 // const status = 'table'
 
 function checkTabs(status) {
     // status === 'cards' ? this.setState({ typeView: 'cards' }) : this.setState({ typeView: 'table' });
+    console.log(status);
 
 }
 
@@ -13,7 +14,7 @@ function checkTabs(status) {
 
 
 
-const tabs = (props) => {
+const Tabs = ({ tabs, setTabs }) => {
     return (
         <div className="tabsView">
             <div uk-margin='true'>
@@ -28,4 +29,4 @@ const tabs = (props) => {
 
 
 
-export default tabs
+export default withState('tabs', 'setTabs', true)(Tabs);

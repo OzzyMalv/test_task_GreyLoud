@@ -3,11 +3,11 @@
     justify-content: center;
 }
 
-.mainCards{
+/* .mainCards{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-}
+} */
 .overrideCard {
     margin: 20px;
     width: 100%;
