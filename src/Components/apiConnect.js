@@ -1,4 +1,4 @@
-class Connect {
+export default class Connect {
     getUsers() {
         return fetch('https://randomuser.me/api/?results=100')
             .then(
@@ -15,4 +15,3 @@ class Connect {
 
 
 }
-export default Connect
