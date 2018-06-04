@@ -33,23 +33,23 @@ class User extends Component {
 
   render() {
     return (
-      <cardInfo>
+      <CardInfo>
         {this.state.data
           .filter(item => item.login.username === this.state.loginData)
           .map(item => (
-            <cardUser
+            <CardUser
               className="uk-card uk-card-default"
               key={item.login.username}
             >
               <div className="uk-card-header">
                 <div className="uk-grid-small uk-flex-middle" uk-grid="true">
-                  <imgInfo>
+                  <ImgInfo>
                     <img
                       className="uk-preserve-width uk-border-circle"
                       alt="img"
                       src={item.picture.large}
                     />
-                  </imgInfo>
+                  </ImgInfo>
                 </div>
               </div>
               <div className="uk-card-body">
@@ -73,9 +73,9 @@ class User extends Component {
                   </ul>
                 </div>
               </div>
-            </cardUser>
+            </CardUser>
           ))}
-      </cardInfo>
+      </CardInfo>
     );
   }
 }
