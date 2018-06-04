@@ -1,6 +1,24 @@
 import React, { Component } from "react";
+import styled from 'styled-components';
 
-import './styleUser.css';
+
+const CardInfo = styled.div`
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+`;
+
+const CardUser = styled.div`
+    margin: 20px;
+    width: 100%;
+    max-width: 400px;
+`;
+
+const ImgInfo = styled.div`
+     margin: 0 auto;
+`;
+
+
 
 class User extends Component {
     constructor(props) {
@@ -18,15 +36,15 @@ class User extends Component {
 
     render() {
         return (
-            <div className='cardInfo'>
+            <CardInfo>
                 {this.state.data.filter(item => item.login.username === this.state.loginData).map((item) =>
                     (
-                        <div className="uk-card uk-card-default cardUser" key={item.login.username}>
+                        <CardUser className="uk-card uk-card-default" key={item.login.username}>
                             <div className="uk-card-header">
                                 <div className="uk-grid-small uk-flex-middle" uk-grid="true">
-                                    <div className="overrideImgInfo">
+                                    <ImgInfo>
                                         <img className="uk-preserve-width uk-border-circle" alt='img' src={item.picture.large}></img>
-                                    </div>
+                                    </ImgInfo>
                                 </div>
                             </div>
                             <div className="uk-card-body">
@@ -41,10 +59,10 @@ class User extends Component {
                                     </ul>
                                 </div>
                             </div>
-                        </div>
+                        </CardUser>
                     )
                 )}
-            </div>
+            </CardInfo>
         )
     }
 

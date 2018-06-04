@@ -1,16 +1,21 @@
 import React from "react";
-import "./styleTabs.css";
+import styled from 'styled-components';
+
+const TabsView = styled.div`
+    display: flex;
+    justify-content: center;
+`;
 
 class Tabs extends React.Component {
 
     render() {
         return (
-            <div className="tabsView">
+            <TabsView>
                 <div uk-margin='true'>
                     <div className="uk-button uk-button-default" onClick={() => { this.props.checkTabs('table') }}>Table</div>
                     <div className="uk-button uk-button-default" onClick={() => { this.props.checkTabs('cards') }}>Cards</div>
                 </div>
-            </div>
+            </TabsView>
         )
     }
 }

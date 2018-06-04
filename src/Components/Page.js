@@ -1,13 +1,17 @@
 import React, { Component } from "react";
+import styled from 'styled-components';
 
 import Connect from "./apiConnect";
 import Cards from './Cards/Cards';
 import Tabs from './Tabs/Tabs';
 
 
-import "./styleTable.css";
 
-
+const TableInfo = styled.table`
+    margin: 0 auto;
+    width: auto;
+    cursor: pointer;
+`;
 
 class Page extends Component {
     constructor(props) {
@@ -60,7 +64,8 @@ class Page extends Component {
             return (
                 <div className='main'>
                     <Tabs checkTabs={this.checkTabs} />
-                    <table className='tableU uk-table uk-table-hover uk-table-middle uk-table-divider '>
+
+                    <TableInfo className='tableU uk-table uk-table-hover uk-table-middle uk-table-divider '>
                         <thead>
                             <tr>
                                 <th className="uk-table-shrink">Foto</th>
@@ -86,7 +91,8 @@ class Page extends Component {
                                 )
                             })}
                         </tbody>
-                    </table>
+                    </TableInfo>
+
 
                 </div>
             );

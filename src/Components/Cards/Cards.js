@@ -1,17 +1,35 @@
 import React from "react";
-import "./styleCards.css";
+import styled from 'styled-components';
+
+
+const MainCard = styled.div`
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+`;
+
+const OverrideCard = styled.div`
+    margin: 20px;
+    width: 100%;
+    max-width: 400px;
+`;
+
+const ImgCard = styled.div`
+     margin: 0 auto;
+`;
+
 
 const cards = (props) => {
     return (
-        <div className='mainCards'>
+        <MainCard>
             {props.data.map((item) =>
                 (
-                    <div className="uk-card uk-card-default overrideCard" key={item.login.username}>
+                    <OverrideCard className="uk-card uk-card-default" key={item.login.username}>
                         <div className="uk-card-header">
                             <div className="uk-grid-small uk-flex-middle" uk-grid="true">
-                                <div className="overrideImg">
+                                <ImgCard>
                                     <img className="uk-preserve-width uk-border-circle" alt='img' src={item.picture.medium}></img>
-                                </div>
+                                </ImgCard>
 
                             </div>
                         </div>
@@ -22,10 +40,10 @@ const cards = (props) => {
                         <div className="uk-card-footer">
                             <a href={'/user/' + item.login.username} className="uk-button uk-button-text">Read more</a>
                         </div>
-                    </div>
+                    </OverrideCard>
                 )
             )}
-        </div>
+        </MainCard>
     )
 }
 
