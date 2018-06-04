@@ -1,5 +1,22 @@
 # GreyLoud
 
+## How to setup
+
+```bash
+# clone repo
+git clone https://github.com/OzzyMalv/test_task_GreyLoud.git
+
+# go to directory
+cd test_task_GreyLoud
+
+# install dependencies
+npm install
+
+# run app
+npm start
+
+```
+
 ## Необходимо реализовать простое реакт приложение, состоящее из страниц
 
 1) Список пользователей
