@@ -1,13 +1,14 @@
-.mainCards{
+.cardInfo{
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
+    margin: 20px;
 }
-.overrideCard {
+.cardUser{
     margin: 20px;
     width: 100%;
     max-width: 400px;
 }
-.overrideImgInfo{
+
+.overrideImg{
     margin: 0 auto !important
 }

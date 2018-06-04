@@ -17,11 +17,16 @@ class Page extends Component {
     }
 
     componentWillMount() {
-        this.connect.getUsers().then(res => {
+        if ((localStorage.getItem('data'))) {
+            let res = JSON.parse(localStorage.getItem('data'));
             this.setState({ data: res })
-        })
-
-
+        }
+        else {
+            this.connect.getUsers().then(res => {
+                this.setState({ data: res })
+                localStorage.setItem('data', JSON.stringify(res)) /// (UNSAFE)
+            })
+        }
     }
 
     checkTabs = (status) => {
@@ -66,11 +71,18 @@ class Page extends Component {
                         <tbody>
                             {this.state.data.map((item) => {
                                 return (
+
                                     <tr key={item.login.username}>
                                         <td><img className="uk-preserve-width uk-border-circle" alt="img" src={item.picture.medium}></img></td>
-                                        <td className="uk-table-link">{item.name.first}  {item.name.last}</td>
-                                        <td className="uk-text-expand">Phone: {item.phone} <br /> Email: {item.email}</td>
+                                        <td className="uk-table-link"><a className="uk-link-reset"
+                                            href={'/user/' + item.login.username} >{item.name.first}  {item.name.last}
+                                        </a>
+                                        </td>
+                                        <td className="uk-text-expand">
+                                            Phone: {item.phone} <br /> Email: {item.email}
+                                        </td>
                                     </tr>
+
                                 )
                             })}
                         </tbody>

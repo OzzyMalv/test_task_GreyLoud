@@ -20,7 +20,7 @@ const cards = (props) => {
                             <div className="uk-text-truncate"> Phone: {item.phone} <br /> Email: {item.email}</div>
                         </div>
                         <div className="uk-card-footer">
-                            <a href={'/user_' + item.login.username} className="uk-button uk-button-text">Read more</a>
+                            <a href={'/user/' + item.login.username} className="uk-button uk-button-text">Read more</a>
                         </div>
                     </div>
                 )
